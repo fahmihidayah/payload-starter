@@ -37,7 +37,7 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    getCloudStoragePlugin(),
+    // getCloudStoragePlugin(),
     // storage-adapter-placeholder
   ],
 })
