@@ -77,6 +77,17 @@ src/
 │   │   ├── page.tsx         # Homepage
 │   │   └── not-found.tsx    # 404 page
 │   └── (payload)/           # Payload CMS admin
+│       └── custom.scss      # Custom admin styling
+├── collections/             # Payload CMS collections
+│   ├── Users/
+│   │   └── config.ts        # User collection with UUID
+│   ├── Posts/
+│   │   └── config.ts        # Blog posts collection
+│   ├── Categories/
+│   │   └── config.ts        # Content categories
+│   └── Media.ts             # Media uploads
+├── fields/
+│   └── slug.ts             # Reusable slug field
 ├── components/
 │   ├── layouts/
 │   │   └── navbar.tsx       # Responsive navigation
@@ -151,17 +162,50 @@ For local development with Docker:
 
 ## 📊 Payload CMS Configuration
 
-The Payload config is optimized for modern web applications with the following collections:
+The Payload config is optimized for modern web applications with organized collections:
 
-### 👥 Users (Authentication)
-- Auth-enabled collection with admin panel access
-- Pre-configured user roles and permissions
-- Ready for custom user fields and authentication flows
+### Collection Architecture
+Collections are organized in dedicated directories for better maintainability:
+- Each collection has its own folder with a `config.ts` file
+- Admin grouping for logical organization in the dashboard
+- UUID-based IDs for all collections instead of auto-increment
 
-### 📁 Media
-- Upload-enabled collection with image optimization
+### 👥 Users Collection (`/collections/Users/`)
+- **Group**: User Management
+- **Features**: Auth-enabled with admin panel access
+- **ID**: UUID-based for better security
+- **Fields**: Email (default), extensible for custom user fields
+
+### 📝 Posts Collection (`/collections/Posts/`)
+- **Group**: Content
+- **Features**: Rich text content management with full blog functionality
+- **ID**: UUID-based
+- **Fields**: 
+  - Title, slug (auto-generated), rich text content
+  - Excerpt, featured image, categories (relationship)
+  - Published date, status (draft/published/archived)
+  - Timestamps for created/updated tracking
+
+### 🏷️ Categories Collection (`/collections/Categories/`)
+- **Group**: Content
+- **Features**: Hierarchical content organization
+- **ID**: UUID-based
+- **Fields**:
+  - Name, slug (auto-generated), description
+  - Color coding for visual organization
+  - Parent relationship for nested categories
+  - Timestamps for tracking
+
+### 📁 Media Collection
+- **Features**: Upload-enabled collection with image optimization
 - Pre-configured sizes and focal point support
 - Automatic resizing and format conversion
+
+### Admin Organization
+Collections are grouped in the admin panel:
+- **User Management**: Users
+- **Content**: Posts, Categories
+- **Media**: Media uploads
 
 For more details, see the [Payload Collections documentation](https://payloadcms.com/docs/configuration/collections).
 
