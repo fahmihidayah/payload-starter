@@ -11,6 +11,7 @@ import { Users } from './collections/Users/config'
 import { Posts } from './collections/Posts/config'
 import { Categories } from './collections/Categories/config'
 import { Media } from './collections/Media'
+import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +37,7 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
+    getCloudStoragePlugin(),
     // storage-adapter-placeholder
   ],
 })
