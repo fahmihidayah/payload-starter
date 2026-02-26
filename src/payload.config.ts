@@ -13,6 +13,7 @@ import { Posts } from './collections/Posts/config'
 import { Categories } from './collections/Categories/config'
 import { Media } from './collections/Media'
 import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
+import { endpointsV1 } from './features/api/v1'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,6 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  endpoints: [...endpointsV1],
   collections: [Users, Posts, Categories, Media],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
