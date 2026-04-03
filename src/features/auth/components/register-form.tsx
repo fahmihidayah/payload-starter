@@ -19,8 +19,11 @@ import { registerFormSchema, RegisterFormSchema } from '../types/register-form-s
 import { register } from '../actions'
 import { UserCircle } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 export function RegisterForm() {
+  const t = useTranslations('auth')
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -45,10 +48,10 @@ export function RegisterForm() {
       if (result.success) {
         router.push('/dashboard')
       } else {
-        setError(result.error || 'Registrasi gagal')
+        setError(result.error || t('registerError'))
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Terjadi kesalahan')
+      setError(err instanceof Error ? err.message : t('genericError'))
     } finally {
       setIsLoading(false)
     }
@@ -61,8 +64,8 @@ export function RegisterForm() {
           <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
             <UserCircle className="h-6 w-6 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold">Daftar</CardTitle>
-          <CardDescription>Buat akun baru untuk melanjutkan</CardDescription>
+          <CardTitle className="text-2xl font-bold">{t('registerTitle')}</CardTitle>
+          <CardDescription>{t('registerDescription')}</CardDescription>
         </CardHeader>
         <CardContent>
           {error && (
@@ -78,9 +81,9 @@ export function RegisterForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{t('name')}</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="Nama" {...field} disabled={isLoading} />
+                      <Input type="text" placeholder={t('namePlaceholder')} {...field} disabled={isLoading} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -92,11 +95,11 @@ export function RegisterForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{t('email')}</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="nama@contoh.com"
+                        placeholder={t('emailPlaceholder')}
                         {...field}
                         disabled={isLoading}
                       />
@@ -111,11 +114,11 @@ export function RegisterForm() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t('password')}</FormLabel>
                     <FormControl>
                       <Input
                         type="password"
-                        placeholder="Minimal 8 karakter"
+                        placeholder={t('passwordMinLength')}
                         {...field}
                         disabled={isLoading}
                       />
@@ -130,11 +133,11 @@ export function RegisterForm() {
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Konfirmasi Password</FormLabel>
+                    <FormLabel>{t('confirmPassword')}</FormLabel>
                     <FormControl>
                       <Input
                         type="password"
-                        placeholder="Ulangi password"
+                        placeholder={t('confirmPasswordPlaceholder')}
                         {...field}
                         disabled={isLoading}
                       />
@@ -145,10 +148,19 @@ export function RegisterForm() {
               />
 
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Mendaftar...' : 'Daftar'}
+                {isLoading ? t('registering') : t('registerButton')}
               </Button>
             </form>
           </Form>
+
+          <div className="mt-6 text-center text-sm">
+            <div className="text-muted-foreground">
+              {t('hasAccount')}{' '}
+              <Link href="/login" className="text-primary hover:underline font-medium">
+                {t('loginHere')}
+              </Link>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>

@@ -17,9 +17,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Mail, KeyRound, Loader2, ArrowLeft, CheckCircle2 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 // import { Alert, AlertDescription } from '@/components/ui/alert'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 export default function ForgotPasswordForm() {
+    const t = useTranslations('auth')
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
 
@@ -56,9 +58,9 @@ export default function ForgotPasswordForm() {
                     <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <KeyRound className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle className="text-2xl font-bold">Lupa Password</CardTitle>
+                    <CardTitle className="text-2xl font-bold">{t('forgotPasswordTitle')}</CardTitle>
                     <CardDescription>
-                        Masukkan email Anda dan kami akan mengirimkan instruksi reset password
+                        {t('forgotPasswordDescription')}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -73,13 +75,13 @@ export default function ForgotPasswordForm() {
 
                             <div className="text-center space-y-4">
                                 <p className="text-sm text-muted-foreground">
-                                    Tidak menerima email? Periksa folder spam atau hubungi administrator.
+                                    {t('noEmailReceived')}
                                 </p>
 
                                 <Link href="/login">
                                     <Button variant="outline" className="w-full">
                                         <ArrowLeft className="mr-2 h-4 w-4" />
-                                        Kembali ke Login
+                                        {t('backToLogin')}
                                     </Button>
                                 </Link>
                             </div>
@@ -94,12 +96,12 @@ export default function ForgotPasswordForm() {
                                         name="email"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Email</FormLabel>
+                                                <FormLabel>{t('email')}</FormLabel>
                                                 <FormControl>
                                                     <div className="relative">
                                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                                         <Input
-                                                            placeholder="nama@contoh.com"
+                                                            placeholder={t('emailPlaceholder')}
                                                             className="pl-10"
                                                             type="email"
                                                             autoComplete="email"
@@ -117,12 +119,12 @@ export default function ForgotPasswordForm() {
                                         {isLoading ? (
                                             <>
                                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                                Mengirim Email...
+                                                {t('sendingEmail')}
                                             </>
                                         ) : (
                                             <>
                                                 <Mail className="mr-2 h-4 w-4" />
-                                                Kirim Reset Password
+                                                {t('sendResetPassword')}
                                             </>
                                         )}
                                     </Button>
@@ -136,7 +138,7 @@ export default function ForgotPasswordForm() {
                                     className="text-sm text-primary hover:underline inline-flex items-center gap-1"
                                 >
                                     <ArrowLeft className="h-3 w-3" />
-                                    Kembali ke Login
+                                    {t('backToLogin')}
                                 </Link>
                             </div>
                         </>

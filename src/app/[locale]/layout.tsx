@@ -47,8 +47,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <QueryProvider>
-              <Navbar />
-              <main>{children}</main>
+              {children}
             </QueryProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
