@@ -4,10 +4,8 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   // Your Next.js config here
   output: 'standalone',
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['your.domain.com'],
-    },
+  serverActions: {
+    allowedOrigins: ['your.domain.com'],
   },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
