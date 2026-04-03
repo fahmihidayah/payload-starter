@@ -29,22 +29,26 @@ export async function generateMetadata({ params }: PageProps) {
     return {}
   }
 
+  const seoImage = page.meta?.image
+  const imageUrl = seoImage
+    ? typeof seoImage === 'string'
+      ? seoImage
+      : (seoImage as Media).url || ''
+    : ''
+
   return {
     title: page.meta?.title || page.title,
-    description: page.meta?.description,
+    description: page.meta?.description || '',
     openGraph: {
       title: page.meta?.title || page.title,
-      description: page.meta?.description,
-      images: page.meta?.image
-        ? [
-            {
-              url:
-                typeof page.meta.image === 'string'
-                  ? page.meta.image
-                  : (page.meta.image as Media).url || '',
-            },
-          ]
-        : [],
+      description: page.meta?.description || '',
+      images: imageUrl ? [{ url: imageUrl }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.meta?.title || page.title,
+      description: page.meta?.description || '',
+      images: imageUrl ? [imageUrl] : [],
     },
   }
 }

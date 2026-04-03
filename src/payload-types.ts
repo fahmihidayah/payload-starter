@@ -180,6 +180,14 @@ export interface Post {
   categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   status?: ('draft' | 'published' | 'archived') | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -278,16 +286,10 @@ export interface Page {
       }
   )[];
   meta?: {
-    /**
-     * SEO title (recommended: 50-60 characters)
-     */
     title?: string | null;
-    /**
-     * SEO description (recommended: 150-160 characters)
-     */
     description?: string | null;
     /**
-     * Social sharing image (Open Graph/Twitter Card)
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
     image?: (number | null) | Media;
   };
@@ -417,6 +419,13 @@ export interface PostsSelect<T extends boolean = true> {
   categories?: T;
   publishedAt?: T;
   status?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

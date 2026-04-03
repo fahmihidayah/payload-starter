@@ -9,7 +9,8 @@
       "Bash(pnpm run build:*)",
       "Bash(pnpm exec tsc:*)",
       "Bash(npx payload:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(pnpm run generate:types:*)"
     ],
     "deny": []
   }

@@ -2,6 +2,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -48,6 +49,12 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
+    seoPlugin({
+      collections: ['pages', 'posts'],
+      uploadsCollection: 'media',
+      generateTitle: ({ doc }) => `${doc?.title || 'Untitled'} | Your Site Name`,
+      generateDescription: ({ doc }) => doc?.excerpt || doc?.meta?.description || '',
+    }),
     // getCloudStoragePlugin(),
     // storage-adapter-placeholder
   ],
