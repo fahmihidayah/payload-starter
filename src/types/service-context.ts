@@ -2,7 +2,7 @@
 import { User } from '@/payload-types'
 import { getPayload, Payload } from 'payload'
 import config from '@payload-config'
-import { EnhancedRequest } from '@/features/api/types/request'
+import { EnhancedRequest } from '@/api/types/request'
 export type ServiceContext = {
   payload: Payload
   user?: User | null

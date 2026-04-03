@@ -1,6 +1,6 @@
-import { composeMiddleware } from '@/features/api/middleware'
-import { withAuth } from '@/features/api/middleware/with-auth'
-import { withLogging } from '@/features/api/middleware/with-logging'
+import { composeMiddleware } from '@/api/middleware'
+import { withAuth } from '@/api/middleware/with-auth'
+import { withLogging } from '@/api/middleware/with-logging'
 import { Endpoint, PayloadRequest } from 'payload'
 
 export const usersEndpoints: Endpoint[] = [

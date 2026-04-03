@@ -1,4 +1,4 @@
-import { Page } from '@/payload-types'
+import { Media, Page } from '@/payload-types'
 import Image from 'next/image'
 
 type MediaImageBlock = Extract<NonNullable<Page['layout']>[number], { blockType: 'mediaImage' }>

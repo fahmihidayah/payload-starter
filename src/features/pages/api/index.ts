@@ -1,6 +1,6 @@
-import { composeMiddleware } from '@/features/api/middleware'
-import { withLogging } from '@/features/api/middleware/with-logging'
-import { withJsonResponse } from '@/features/api/middleware/with-json-response'
+import { composeMiddleware } from '@/api/middleware'
+import { withLogging } from '@/api/middleware/with-logging'
+import { withJsonResponse } from '@/api/middleware/with-json-response'
 import { Endpoint, PayloadRequest } from 'payload'
 import { PageService } from '../services/page-service'
 import { createServiceContext } from '@/types/service-context'
@@ -14,9 +14,7 @@ export const pagesEndpoints: Endpoint[] = [
       withJsonResponse,
     )(async (request: PayloadRequest): Promise<Response> => {
       const url = new URL(request.url || '', `http://${request.headers.get('host')}`)
-      const limit = url.searchParams.get('limit')
-        ? parseInt(url.searchParams.get('limit')!)
-        : 100
+      const limit = url.searchParams.get('limit') ? parseInt(url.searchParams.get('limit')!) : 100
 
       const serviceContext = await createServiceContext({ req: request })
       const result = await PageService.findAll({
@@ -25,10 +23,7 @@ export const pagesEndpoints: Endpoint[] = [
       })
 
       if (result.error) {
-        return Response.json(
-          { error: true, message: result.message },
-          { status: 500 },
-        )
+        return Response.json({ error: true, message: result.message }, { status: 500 })
       }
 
       return Response.json({

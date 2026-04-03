@@ -8,13 +8,14 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users/config'
-import { Posts } from './collections/Posts/config'
-import { Categories } from './collections/Categories/config'
-import { Media } from './collections/Media'
-import { Page } from './collections/Page/config'
+import { Users } from './features/user/collection/config'
+import { Posts } from './features/post/collection/config'
+import { Categories } from './features/categories/collections/config'
+import { Media } from './features/media/collection/Media'
+import { Page } from './features/pages/collections/config'
 import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
-import { endpointsV1 } from './features/api/v1'
+import { endpointsV1 } from './api/v1'
+import { defaultLexical } from './fields/defaultLexical'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +29,8 @@ export default buildConfig({
   },
   endpoints: [...endpointsV1],
   collections: [Users, Posts, Categories, Media, Page],
-  editor: lexicalEditor(),
+  editor: defaultLexical,
+  // editor:
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
