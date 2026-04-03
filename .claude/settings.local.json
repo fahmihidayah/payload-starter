@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(mkdir:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(pnpm add:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm exec tsc:*)"
     ],
     "deny": []
   }

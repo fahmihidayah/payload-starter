@@ -1,9 +1,12 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Database, Zap, Palette, Rocket } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 export default function HomePage() {
+  const t = useTranslations('common')
+
   return (
     <div className="w-full py-16">
       <div className="mx-auto max-w-4xl text-center">
@@ -13,7 +16,7 @@ export default function HomePage() {
           </div>
         </div>
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Welcome to Payload Starter
+          {t('welcome')} to Payload Starter
         </h1>
         <p className="mt-6 text-lg leading-8 text-muted-foreground">
           A modern web application built with Payload CMS, Next.js, and cutting-edge technologies.
@@ -24,7 +27,7 @@ export default function HomePage() {
             <Link href="/register">Get Started</Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <Link href="/login">Sign In</Link>
+            <Link href="/login">{t('login')}</Link>
           </Button>
         </div>
       </div>

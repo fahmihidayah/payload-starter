@@ -1,0 +1,18 @@
+{
+  "common": {
+    "welcome": "Selamat datang",
+    "home": "Beranda",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "signup": "Daftar"
+  },
+  "navigation": {
+    "menu": "Menu"
+  },
+  "metadata": {
+    "title": "Payload Starter",
+    "description": "Aplikasi web modern yang dibangun dengan Payload CMS dan Next.js."
+  }
+}

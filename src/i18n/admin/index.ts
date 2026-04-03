@@ -1,16 +1,16 @@
-import localeAr from './locales/ar.json';
-import localeEn from './locales/en.json';
+import localeId from './locales/id.json'
+import localeEn from './locales/en.json'
 
-export const getLocaleText = (key: keyof typeof localeAr) => {
+export const getLocaleText = (key: keyof typeof localeEn) => {
   return {
-    ar: localeAr[key],
+    id: localeId[key],
     en: localeEn[key],
-  };
+  }
 }
 
-export const getLocaleTextByLanguage = (key: keyof typeof localeAr, language: string) => {
+export const getLocaleTextByLanguage = (key: keyof typeof localeEn, language: string) => {
   return {
-    ar: localeAr[key],
+    id: localeId[key],
     en: localeEn[key],
-  }[language];
+  }[language]
 }

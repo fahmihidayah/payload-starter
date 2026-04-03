@@ -1,0 +1,18 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign Up"
+  },
+  "navigation": {
+    "menu": "Menu"
+  },
+  "metadata": {
+    "title": "Payload Starter",
+    "description": "A modern web application built with Payload CMS and Next.js."
+  }
+}

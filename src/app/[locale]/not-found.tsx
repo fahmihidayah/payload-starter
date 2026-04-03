@@ -1,11 +1,11 @@
-import './styles.css'
-import Link from 'next/link'
+import './(frontend)/styles.css'
+import { Link } from '@/i18n/routing'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Home, ArrowLeft, Search } from 'lucide-react'
 
-export default function GlobalNotFound() {
+export default function NotFound() {
   return (
     <html lang="en">
       <body className="min-h-screen bg-background text-foreground">

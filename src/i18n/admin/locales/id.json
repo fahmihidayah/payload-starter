@@ -1,0 +1,55 @@
+{
+  "general": "Umum",
+  "title": "Judul",
+  "content": "Konten",
+  "description": "Deskripsi",
+  "name": "Nama",
+  "email": "Email",
+  "phone": "Telepon",
+  "address": "Alamat",
+  "date": "Tanggal",
+  "image": "Gambar",
+  "slug": "Slug",
+  "slug_lock": "Kunci Slug",
+  "key": "Kunci",
+
+  "users": "Pengguna",
+  "user": "Pengguna",
+  "pages": "Halaman",
+  "page": "Halaman",
+  "medias": "Media",
+  "media": "Media",
+  "categories": "Kategori",
+
+  "label": "Label",
+  "hero": "Hero",
+  "layout": "Tata Letak",
+  "seo": "SEO",
+  "meta": "Meta",
+  "meta_image": "Gambar Meta",
+  "meta_description": "Deskripsi Meta",
+
+  "required": "Wajib diisi",
+  "placeholder": "Placeholder",
+  "url": "URL",
+  "link": "Tautan",
+  "type": "Tipe",
+  "language": "Bahasa",
+
+  "role": "Peran",
+  "roles": "Peran",
+  "permissions": "Izin",
+
+  "delete": "Hapus",
+  "download": "Unduh",
+  "import": "Impor",
+  "processing": "Memproses",
+
+  "form": "Formulir",
+  "forms": "Formulir",
+  "form_submission": "Pengiriman Formulir",
+  "form_submissions": "Pengiriman Formulir",
+
+  "unlock": "Buka Kunci",
+  "lock": "Kunci"
+}
