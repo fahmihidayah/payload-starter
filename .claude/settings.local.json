@@ -7,7 +7,9 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(pnpm run build:*)",
-      "Bash(pnpm exec tsc:*)"
+      "Bash(pnpm exec tsc:*)",
+      "Bash(npx payload:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

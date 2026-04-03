@@ -12,6 +12,7 @@ import { Users } from './collections/Users/config'
 import { Posts } from './collections/Posts/config'
 import { Categories } from './collections/Categories/config'
 import { Media } from './collections/Media'
+import { Page } from './collections/Page/config'
 import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
 import { endpointsV1 } from './features/api/v1'
 
@@ -26,7 +27,7 @@ export default buildConfig({
     },
   },
   endpoints: [...endpointsV1],
-  collections: [Users, Posts, Categories, Media],
+  collections: [Users, Posts, Categories, Media, Page],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
