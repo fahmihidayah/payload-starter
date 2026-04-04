@@ -9,6 +9,15 @@ export const Users: CollectionConfig = {
   auth: true,
   fields: [
     // Email added by default
+    {
+      name: 'role',
+      type: 'relationship',
+      relationTo: 'roles',
+      required: false,
+      admin: {
+        description: 'Assign a role to this user to define their permissions',
+      },
+    },
     // Add more fields as needed
   ],
 }

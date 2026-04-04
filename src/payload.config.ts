@@ -14,6 +14,7 @@ import { Posts } from './features/post/collection/config'
 import { Categories } from './features/categories/collections/config'
 import { Media } from './features/media/collection/Media'
 import { Page } from './features/pages/collections/config'
+import { Roles } from './features/role/collection/config'
 import { Header } from './features/layout/globals/Header'
 import { Footer } from './features/layout/globals/Footer'
 import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
@@ -31,7 +32,7 @@ export default buildConfig({
     },
   },
   endpoints: [...endpointsV1],
-  collections: [Users, Posts, Categories, Media, Page],
+  collections: [Users, Roles, Posts, Categories, Media, Page],
   globals: [Header, Footer],
   editor: defaultLexical,
   // editor:
