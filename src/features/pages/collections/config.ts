@@ -1,26 +1,31 @@
 import { slugField } from '@/fields/slug'
 import type { CollectionConfig } from 'payload'
 import { Hero, Article, MediaImage } from './Blocks'
+import { createCollectionConfig } from '@/lib/collection/create-collection-config'
 
-export const Page: CollectionConfig = {
-  slug: 'pages',
-  admin: {
-    useAsTitle: 'title',
-    group: 'Content',
+export const Page: CollectionConfig = createCollectionConfig({
+  collectionConfig: {
+    slug: 'pages',
+    admin: {
+      useAsTitle: 'title',
+      group: 'Content',
+    },
+    fields: [
+      {
+        name: 'title',
+        type: 'text',
+        required: true,
+      },
+      ...slugField(),
+      {
+        name: 'layout',
+        type: 'blocks',
+        required: true,
+        blocks: [Hero, Article, MediaImage],
+      },
+    ],
+    timestamps: true,
   },
-  fields: [
-    {
-      name: 'title',
-      type: 'text',
-      required: true,
-    },
-    ...slugField(),
-    {
-      name: 'layout',
-      type: 'blocks',
-      required: true,
-      blocks: [Hero, Article, MediaImage],
-    },
-  ],
-  timestamps: true,
-}
+  isPublic: true,
+  enableCreatedBy: true,
+})

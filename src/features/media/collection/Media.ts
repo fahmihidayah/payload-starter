@@ -11,6 +11,16 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'createdBy',
+      type: 'relationship',
+      relationTo: 'users',
+      required: true,
+      defaultValue: ({ user }) => user?.id,
+      admin: {
+        readOnly: true,
+      },
+    },
   ],
   upload: true,
 }

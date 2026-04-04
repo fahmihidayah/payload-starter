@@ -227,6 +227,7 @@ export interface Post {
   categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   status?: ('draft' | 'published' | 'archived') | null;
+  createdBy: number | User;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -237,6 +238,7 @@ export interface Post {
   };
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -245,6 +247,7 @@ export interface Post {
 export interface Media {
   id: number;
   alt: string;
+  createdBy: number | User;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -278,8 +281,10 @@ export interface Category {
    * Parent category for hierarchical organization
    */
   parent?: (string | null) | Category;
+  createdBy: number | User;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -332,6 +337,7 @@ export interface Page {
         blockType: 'mediaImage';
       }
   )[];
+  createdBy: number | User;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -342,6 +348,7 @@ export interface Page {
   };
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -495,6 +502,7 @@ export interface PostsSelect<T extends boolean = true> {
   categories?: T;
   publishedAt?: T;
   status?: T;
+  createdBy?: T;
   meta?:
     | T
     | {
@@ -504,6 +512,7 @@ export interface PostsSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -517,8 +526,10 @@ export interface CategoriesSelect<T extends boolean = true> {
   description?: T;
   color?: T;
   parent?: T;
+  createdBy?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -526,6 +537,7 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  createdBy?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -581,6 +593,7 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  createdBy?: T;
   meta?:
     | T
     | {
@@ -590,6 +603,7 @@ export interface PagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

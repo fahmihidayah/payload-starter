@@ -13,7 +13,9 @@ export const PostService = {
     limit?: number
     page?: number
     status?: 'draft' | 'published' | 'archived'
-  }): Promise<ServiceResult<{ docs: Post[]; totalDocs: number; totalPages: number; page: number }>> => {
+  }): Promise<
+    ServiceResult<{ docs: Post[]; totalDocs: number; totalPages: number; page: number }>
+  > => {
     const postsDoc = await serviceContext.payload.find({
       collection: 'posts',
       limit,
@@ -126,11 +128,14 @@ export const PostService = {
     categoryId: string
     limit?: number
     page?: number
-  }): Promise<ServiceResult<{ docs: Post[]; totalDocs: number; totalPages: number; page: number }>> => {
+  }): Promise<
+    ServiceResult<{ docs: Post[]; totalDocs: number; totalPages: number; page: number }>
+  > => {
     const postsDoc = await serviceContext.payload.find({
       collection: 'posts',
       limit,
       page,
+      overrideAccess: true,
       where: {
         categories: {
           contains: categoryId,
