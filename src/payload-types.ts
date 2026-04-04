@@ -93,8 +93,14 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+  };
+  globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -554,6 +560,138 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  companyLogo?: (number | null) | Media;
+  companyTitle: string;
+  companyBriefDescription?: string | null;
+  showAuthLinks?: boolean | null;
+  showSearch?: boolean | null;
+  navigationLinks?:
+    | {
+        label: string;
+        type: 'page' | 'url';
+        page?: (number | null) | Page;
+        url?: string | null;
+        openInNewTab?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  stickyHeader?: boolean | null;
+  transparentOnTop?: boolean | null;
+  showThemeToggle?: boolean | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  linkSections?:
+    | {
+        sectionTitle?: string | null;
+        links?:
+          | {
+              label: string;
+              type: 'page' | 'url';
+              page?: (number | null) | Page;
+              url?: string | null;
+              openInNewTab?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  showNewsletterForm?: boolean | null;
+  newsletterTitle?: string | null;
+  newsletterDescription?: string | null;
+  newsletterButtonText?: string | null;
+  socialLinks?:
+    | {
+        platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube' | 'tiktok' | 'github' | 'other';
+        url: string;
+        customIconName?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  copyrightText?: string | null;
+  additionalInfo?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  companyLogo?: T;
+  companyTitle?: T;
+  companyBriefDescription?: T;
+  showAuthLinks?: T;
+  showSearch?: T;
+  navigationLinks?:
+    | T
+    | {
+        label?: T;
+        type?: T;
+        page?: T;
+        url?: T;
+        openInNewTab?: T;
+        id?: T;
+      };
+  stickyHeader?: T;
+  transparentOnTop?: T;
+  showThemeToggle?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  linkSections?:
+    | T
+    | {
+        sectionTitle?: T;
+        links?:
+          | T
+          | {
+              label?: T;
+              type?: T;
+              page?: T;
+              url?: T;
+              openInNewTab?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  showNewsletterForm?: T;
+  newsletterTitle?: T;
+  newsletterDescription?: T;
+  newsletterButtonText?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        customIconName?: T;
+        id?: T;
+      };
+  copyrightText?: T;
+  additionalInfo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

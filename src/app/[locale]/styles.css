@@ -118,100 +118,100 @@
     @apply bg-background text-foreground;
   }
 
-  /* Headings */
-  h1 {
+  /* Article-specific typography styles */
+  article h1 {
     @apply text-4xl font-bold tracking-tight mb-6 mt-8 lg:text-5xl;
   }
 
-  h2 {
+  article h2 {
     @apply text-3xl font-bold tracking-tight mb-5 mt-7 lg:text-4xl;
   }
 
-  h3 {
+  article h3 {
     @apply text-2xl font-semibold tracking-tight mb-4 mt-6 lg:text-3xl;
   }
 
-  h4 {
+  article h4 {
     @apply text-xl font-semibold tracking-tight mb-3 mt-5 lg:text-2xl;
   }
 
-  h5 {
+  article h5 {
     @apply text-lg font-semibold tracking-tight mb-3 mt-4 lg:text-xl;
   }
 
-  h6 {
+  article h6 {
     @apply text-base font-semibold tracking-tight mb-2 mt-4 lg:text-lg;
   }
 
   /* Paragraph */
-  p {
+  article p {
     @apply text-base leading-7 mb-4 text-foreground/90;
   }
 
   /* Lists */
-  ul {
+  article ul {
     @apply list-disc list-inside mb-4 space-y-2 pl-4;
   }
 
-  ol {
+  article ol {
     @apply list-decimal list-inside mb-4 space-y-2 pl-4;
   }
 
-  li {
+  article li {
     @apply text-base leading-7 text-foreground/90;
   }
 
   /* Nested lists */
-  li > ul,
-  li > ol {
+  article li > ul,
+  article li > ol {
     @apply mt-2 mb-2 ml-4;
   }
 
   /* Blockquote */
-  blockquote {
+  article blockquote {
     @apply border-l-4 border-primary/30 pl-6 pr-4 py-2 mb-4 italic text-foreground/80 bg-muted/30 rounded-r-md;
   }
 
-  blockquote p {
+  article blockquote p {
     @apply mb-2 last:mb-0;
   }
 
   /* Text formatting */
-  strong {
+  article strong {
     @apply font-bold text-foreground;
   }
 
-  em {
+  article em {
     @apply italic;
   }
 
-  u {
+  article u {
     @apply underline underline-offset-2;
   }
 
-  s {
+  article s {
     @apply line-through opacity-70;
   }
 
   /* Links */
-  a {
+  article a {
     @apply text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors;
   }
 
-  a:hover {
+  article a:hover {
     @apply text-primary/80;
   }
 
   /* Code */
-  code {
+  article code {
     @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-accent-foreground;
   }
 
-  pre code {
+  article pre code {
     @apply bg-transparent px-0 py-0;
   }
 
-  pre {
+  article pre {
     @apply bg-muted p-4 rounded-lg overflow-x-auto mb-4;
   }
 }

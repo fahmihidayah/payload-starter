@@ -1,0 +1,5 @@
+export { Header } from './header'
+export { Footer } from './footer'
+export { SearchInput } from './search-input'
+export { SubscriptionForm } from './subscription-form'
+export { SocialIcon } from './social-icon'

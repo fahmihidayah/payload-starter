@@ -14,6 +14,8 @@ import { Posts } from './features/post/collection/config'
 import { Categories } from './features/categories/collections/config'
 import { Media } from './features/media/collection/Media'
 import { Page } from './features/pages/collections/config'
+import { Header } from './features/layout/globals/Header'
+import { Footer } from './features/layout/globals/Footer'
 import getCloudStoragePlugin from './plugins/cloud-storage-plugin'
 import { endpointsV1 } from './api/v1'
 import { defaultLexical } from './fields/defaultLexical'
@@ -30,6 +32,7 @@ export default buildConfig({
   },
   endpoints: [...endpointsV1],
   collections: [Users, Posts, Categories, Media, Page],
+  globals: [Header, Footer],
   editor: defaultLexical,
   // editor:
   secret: process.env.PAYLOAD_SECRET || '',
