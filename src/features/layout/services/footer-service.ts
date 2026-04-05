@@ -14,6 +14,7 @@ export const FooterService = {
     try {
       const footer = await serviceContext.payload.findGlobal({
         slug: 'footer',
+        overrideAccess: true,
       })
 
       return { data: footer as Footer }

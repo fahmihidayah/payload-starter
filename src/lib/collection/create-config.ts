@@ -4,6 +4,7 @@ import {
   CollectionConfig,
   CollectionSlug,
   Field,
+  GlobalConfig,
   PayloadRequest,
   Where,
 } from 'payload'
@@ -51,6 +52,35 @@ export function createCollectionConfig(args: {
             schedulePublish: true,
           },
           maxPerDoc: 20,
+        }
+      : undefined,
+  }
+}
+
+export function createGlobalConfig(args: {
+  globalConfig: GlobalConfig
+  isPublic?: boolean
+  enableCreatedBy?: boolean
+}): GlobalConfig {
+  const { globalConfig, isPublic = false, enableCreatedBy = true } = args
+  const slug = globalConfig.slug as CollectionSlug
+
+  const fields = globalConfig.fields
+
+  return {
+    ...globalConfig,
+    fields,
+    hooks: globalConfig.hooks,
+    access: {
+      read: getAccessControl(slug, 'read', isPublic),
+      update: getAccessControl(slug, 'update', isPublic),
+    },
+    versions: globalConfig.versions
+      ? {
+          drafts: {
+            autosave: false,
+            schedulePublish: true,
+          },
         }
       : undefined,
   }

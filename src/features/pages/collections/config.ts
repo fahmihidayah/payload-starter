@@ -1,7 +1,7 @@
 import { slugField } from '@/fields/slug'
 import type { CollectionConfig } from 'payload'
 import { Hero, Article, MediaImage } from './Blocks'
-import { createCollectionConfig } from '@/lib/collection/create-collection-config'
+import { createCollectionConfig } from '@/lib/collection/create-config'
 
 export const Page: CollectionConfig = createCollectionConfig({
   collectionConfig: {
@@ -26,6 +26,6 @@ export const Page: CollectionConfig = createCollectionConfig({
     ],
     timestamps: true,
   },
-  isPublic: true,
+  isPublic: false,
   enableCreatedBy: true,
 })

@@ -1,7 +1,7 @@
 import { slugField } from '@/fields/slug'
 import type { CollectionConfig } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { createCollectionConfig } from '@/lib/collection/create-collection-config'
+import { createCollectionConfig } from '@/lib/collection/create-config'
 
 export const Posts: CollectionConfig = createCollectionConfig({
   collectionConfig: {

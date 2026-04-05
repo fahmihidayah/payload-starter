@@ -14,6 +14,7 @@ export const HeaderService = {
     try {
       const header = await serviceContext.payload.findGlobal({
         slug: 'header',
+        overrideAccess: true,
       })
 
       return { data: header as Header }
